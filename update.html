@@ -1,0 +1,31 @@
+{% include 'header.html' %}
+<h1>Edit Data</h1>
+
+<form action="/updateData/{{edit.id}}" method="post">
+    {% csrf_token %}
+    <table>
+        <tr>
+            <td>First Name : <input type="text" name="first_name" value="{{edit.first_name}}" ></td>
+        </tr>
+        <tr>
+            <td>Last Name : <input type="text" name="last_name" value="{{edit.last_name}}" ></td>
+        </tr>
+        <tr>
+            <td>Email : <input type="text" name="email" value="{{edit.email}}"></td>
+        </tr>
+        <tr>
+            <td>Username : <input type="text" name="username" value="{{edit.username}}" ></td>
+        </tr>
+        <tr>
+            <td>Password : <input type="password" name="password" value="{{edit.password}}" ></td>
+        </tr>
+        <tr>
+            <td><input type="submit" value="Update" /></td>
+            {% if messages %}
+            {% for record in messages %}
+            <h3 style="color:green">{{record}}</h3>
+            {% endfor %}
+            {% endif %}
+        </tr>
+    </table>
+</form>

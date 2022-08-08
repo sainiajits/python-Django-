@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+        <table>
+            <tr>
+                <td><a href='/'>Home</a></td>
+                <td><a href='/all-records'>All Student</a></td>
+                {% if user.is_authenticated %}
+                <td>Hello, {{user.username}} <a href='/logout'>Logout</a></td>
+                {% else %}
+                <td><a href='/registration'>Registration</a></td>
+                <td><a href='/login'>Login</a></td>
+                {% endif %}
+            </tr>
+        </table>
+    
